@@ -36,6 +36,10 @@ class MimeTypeListener
         /** @var RouteInterface $routeObject */
         $routeObject = $event->getRequest()->get(DynamicRouter::ROUTE_KEY);
         if (null !== $routeObject) {
+            if (null !== $routeObject->getTemplateName() && strpos($routeObject->getTemplateName(), 'xml') !== false) {
+                $response = $event->getResponse();
+                $response->headers->set('Content-Type', Mime::getMimeFromExtension('xml') . '; charset=UTF-8');
+            }
             $extension = pathinfo($routeObject->getStaticPrefix().$routeObject->getVariablePattern(), PATHINFO_EXTENSION);
             $response = $event->getResponse();
             if ('' !== $extension && Response::HTTP_OK === $response->getStatusCode()) {
