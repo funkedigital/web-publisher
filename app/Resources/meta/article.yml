@@ -23,6 +23,9 @@ properties:
     updatedAt:
         description: "Article update timestamp"
         type: datetime
+    modifiedAt:
+        description: "Article modification timestamp"
+        type: datetime
     metadata:
         description: "Article metadata"
         type: array
