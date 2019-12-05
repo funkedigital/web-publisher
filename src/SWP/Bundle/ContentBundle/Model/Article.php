@@ -65,6 +65,11 @@ class Article implements ArticleInterface
     protected $publishedAt;
 
     /**
+     * @var int
+     */
+    protected $modifiedCount;
+
+    /**
      * @var string
      */
     protected $status = ArticleInterface::STATUS_NEW;
@@ -246,6 +251,16 @@ class Article implements ArticleInterface
     public function setPublishedAt(\DateTime $publishedAt)
     {
         $this->publishedAt = $publishedAt;
+    }
+
+    public function getModifiedCount(): int
+    {
+        return $this->modifiedCount;
+    }
+
+    public function setModifiedCount(int $modifiedCount)
+    {
+        $this->modifiedCount = $modifiedCount;
     }
 
     public function getStatus()

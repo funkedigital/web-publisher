@@ -30,6 +30,9 @@ SWP\Bundle\ContentBundle\Model\Article:
             type: string
         status:
             type: string
+        modifiedCount:
+            type: int
+            nullable: false
         extra:
             type: array
             options:

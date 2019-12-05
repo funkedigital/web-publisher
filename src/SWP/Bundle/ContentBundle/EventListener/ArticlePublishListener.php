@@ -57,7 +57,9 @@ final class ArticlePublishListener
     public function unpublish(ArticleEvent $event)
     {
         $article = $event->getArticle();
-
+        if (isset($article->getExtra()['update_date'])) {
+            $article->setModifiedCount($article->getModifiedCount()+1);
+        }
         if ($article->isPublished()) {
             $this->articleService->unpublish($article, ArticleInterface::STATUS_UNPUBLISHED);
         }
