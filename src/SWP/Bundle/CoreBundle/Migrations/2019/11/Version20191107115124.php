@@ -12,7 +12,7 @@ final class Version20191107115124 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf('postgresql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'postgresql\'.');
-        $this->addSql('ALTER TABLE swp_article ADD COLUMN modified_count NUMERIC DEFAULT 0 NOT NULL;');
+        $this->addSql('ALTER TABLE swp_article ADD COLUMN modified_count NUMERIC DEFAULT 0;');
     }
     public function down(Schema $schema): void
     {
