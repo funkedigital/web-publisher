@@ -84,16 +84,16 @@ interface ArticleInterface extends TimestampableInterface, TimestampableCancelIn
     public function setPublishedAt(\DateTime $publishedAt);
 
     /**
-     * @return int
+     * @param float $modifiedcount
+     *
+     * @return float
      */
-    public function getModifiedCount();
+    public function setModifiedCount(float $modifiedCount);
 
     /**
-     * @param int $modifiedCount
-     *
-     * @return int
+     * @return float
      */
-    public function setModifiedCOunt(int $modifiedCount);
+    public function getModifiedCount();
 
     /**
      * @return bool
