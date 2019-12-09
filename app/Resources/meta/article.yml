@@ -25,7 +25,7 @@ properties:
         type: datetime
     modifiedCount:
         description: "Article republishing modification count"
-        type: int
+        type: float
     metadata:
         description: "Article metadata"
         type: array
