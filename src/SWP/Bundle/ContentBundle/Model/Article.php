@@ -65,7 +65,7 @@ class Article implements ArticleInterface
     protected $publishedAt;
 
     /**
-     * @var int
+     * @var float
      */
     protected $modifiedCount;
 
@@ -253,14 +253,14 @@ class Article implements ArticleInterface
         $this->publishedAt = $publishedAt;
     }
 
-    public function getModifiedCount(): int
+    public function setModifiedCount(?float $modifiedcount): void
     {
-        return $this->modifiedCount;
+        $this->modifiedCount = $modifiedcount;
     }
 
-    public function setModifiedCount(int $modifiedCount)
+    public function getModifiedCount(): ?float
     {
-        $this->modifiedCount = $modifiedCount;
+        return $this->modifiedCount;
     }
 
     public function getStatus()
