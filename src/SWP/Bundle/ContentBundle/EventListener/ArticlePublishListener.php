@@ -43,7 +43,17 @@ final class ArticlePublishListener
     public function publish(ArticleEvent $event)
     {
         $article = $event->getArticle();
-
+        
+        if (isset($article->getExtra()['update_date'])) {
+            $article->setModifiedAt($article->getUpdatedAt());
+            if (null == $article->getModifiedCount()){
+                $count = 0;
+            } else {
+                $count = $article->getModifiedCount();
+            }
+                $article->setModifiedCount($count + 1);
+        }
+        
         if ($article->isPublished()) {
             return;
         }
