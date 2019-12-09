@@ -31,8 +31,8 @@ SWP\Bundle\ContentBundle\Model\Article:
         status:
             type: string
         modifiedCount:
-            type: int
-            nullable: false
+            type: float
+            nullable: true
         extra:
             type: array
             options:
