@@ -47,6 +47,10 @@ SWP\Bundle\ContentBundle\Model\Article:
             expose: true
             groups: [api, api_packages_list, api_articles_list]
             type: DateTime
+        modifiedCOunt:
+            expose: true
+            groups: [api, api_packages_list, api_articles_list]
+            type: float
         publishStartDate:
             expose: true
             groups: [api]
