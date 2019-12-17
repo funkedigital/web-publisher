@@ -53,6 +53,11 @@ class Article implements ArticleInterface
     /**
      * @var string
      */
+    protected $contentType;
+
+    /**
+     * @var string
+     */
     protected $title;
 
     /**
@@ -405,5 +410,16 @@ class Article implements ArticleInterface
     public function setFamilyId($familyId)
     {
         $this->familyId = $familyId;
+    }
+
+    public function getContentType()
+    {
+        return $this->contentType;
+    }
+
+
+    public function setContentType($contentType)
+    {
+        $this->contentType = $contentType;
     }
 }

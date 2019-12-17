@@ -5,6 +5,9 @@ properties:
     title:
         description: "Article title"
         type: text
+    contentType:
+        description: "Article content type"
+        type: text
     familyId:
         description: "Article family ID"
         type: text

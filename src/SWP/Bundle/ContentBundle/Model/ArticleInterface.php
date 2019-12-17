@@ -189,4 +189,14 @@ interface ArticleInterface extends TimestampableInterface, TimestampableCancelIn
      * @param string $familyId
      */
     public function setFamilyId($familyId);
+
+    /**
+     * @return string
+     */
+    public function getContentType();
+
+    /**
+     * @param string $contentType
+     */
+    public function setContentType($contentType);
 }
