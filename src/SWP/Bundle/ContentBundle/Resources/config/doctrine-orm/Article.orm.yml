@@ -20,6 +20,9 @@ SWP\Bundle\ContentBundle\Model\Article:
         familyId:
             type: string
             nullable: true
+        contentType:
+            type: string
+            nullable: true
         title:
             type: string
         lead:
