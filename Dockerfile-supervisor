@@ -58,9 +58,14 @@ RUN rm -f /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Berlin /etc/localtime
 RUN "date"
 
+COPY --from=composer:1.6 /usr/bin/composer /usr/bin/composer
+# https://getcomposer.org/doc/03-cli.md#composer-allow-superuser
+ENV COMPOSER_ALLOW_SUPERUSER 1
+# create composer cache directory
+RUN mkdir -p /var/www/.composer && chown -R www-data /var/www/.composer
+
 COPY . /var/www/publisher/
 WORKDIR /var/www/publisher/
-RUN php /usr/bin/composer update --ignore-platform-reqs
 RUN php /usr/bin/composer install \
  && php /usr/bin/composer dump-autoload \
  && php /usr/bin/composer dump-env dev
