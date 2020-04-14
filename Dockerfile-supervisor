@@ -15,7 +15,7 @@ RUN set -ex \
         libpng-dev \
         libjpeg-turbo-dev \
         libintl \
-	libwebp-dev 
+	libwebp-dev \
         icu \
         icu-dev \
         git \
