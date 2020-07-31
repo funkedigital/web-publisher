@@ -71,7 +71,7 @@ RUN php /usr/bin/composer install --no-dev --optimize-autoloader --apcu-autoload
  && php /usr/bin/composer dump-env prod
 
 RUN addgroup -g 1111 app \
- && adduser --uid 1111 app \
+ && adduser --uid 1111 --disabled-password -G app appuser \
  && chown -R 1111:1111 /var/www/publisher
 USER 1111:1111
 
