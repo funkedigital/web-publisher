@@ -70,7 +70,7 @@ RUN php /usr/bin/composer install --no-dev --optimize-autoloader --apcu-autoload
  && php /usr/bin/composer dump-autoload --optimize --apcu \	
  && php /usr/bin/composer dump-env prod
 
-RUN groupadd -g 1111 app \
+RUN addgroup -g 1111 app \
  && adduser --uid 1111 app \
  && chown -R 1111:1111 /var/www/publisher
 USER 1111:1111
