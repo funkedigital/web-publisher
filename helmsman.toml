@@ -1,0 +1,27 @@
+[metadata]
+org = "funkedigital.de"
+
+# using a minikube cluster
+[settings]
+  kubeContext = "helmsman" # the name of the context to be created
+  bearerToken = true
+  clusterURI = "https://kubernetes.default"
+[certificates]
+  caCrt = "/var/run/secrets/kubernetes.io/serviceaccount/ca.crt" # GCS bucket path
+
+[namespaces]
+[namespaces.superdesk-pr-${GO_SCM_WEB_PUB_PR_PR_ID}]
+protected = false
+
+[helmRepos]
+stable = "https://kubernetes-charts.storage.googleapis.com"
+
+[apps]
+[apps.traefik]
+name = "traefik-test" # should be unique across all apps
+description = "production artifactory"
+namespace = "superdesk-pr-${GO_SCM_WEB_PUB_PR_PR_ID}"
+enabled = true
+version = "1.87.2" # chart version
+chart = "stable/traefik"
+#testmemememememememememememememmememememeemememememememememmemeem
