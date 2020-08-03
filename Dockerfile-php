@@ -67,6 +67,7 @@ COPY . /var/www/publisher
 WORKDIR /var/www/publisher/	
 RUN php /usr/bin/composer install \	
  && php /usr/bin/composer dump-autoload \	
- && php /usr/bin/composer dump-env prod
+ && php /usr/bin/composer dump-env prod \
+ && chown -R www-data. .
  
-WORKDIR /var/www/publisher
+USER 82:82
