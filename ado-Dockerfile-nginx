@@ -10,8 +10,14 @@ RUN apk add --no-cache tzdata \
 
 COPY etc/docker/nginx/default.conf /etc/nginx/conf.d/
 COPY etc/docker/nginx/nginx.conf /etc/nginx/nginx.conf
+
+RUN sed -i 's/user  nginx;//g' /etc/nginx/nginx.conf
 RUN sed -i 's/php:9000/127.0.0.1:9000/g' /etc/nginx/conf.d/default.conf
+RUN sed -i 's/listen 80;/listen 8080;/g' /etc/nginx/conf.d/default.conf
+
 RUN addgroup -g 1111 app \
- && adduser --uid 1111 app \
- && chown -R 1111:1111 /var/www/publisher
+ && adduser --uid 1111 --disabled-password -G app appuser \
+ && mkdir -p /var/cache/nginx/client_temp \
+ && chown -R 1111:1111 /var/cache/nginx/ \
+ && chmod 777 /var/run
 USER 1111:1111
