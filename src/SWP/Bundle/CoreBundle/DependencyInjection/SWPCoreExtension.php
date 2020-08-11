@@ -92,6 +92,7 @@ class SWPCoreExtension extends Extension implements PrependExtensionInterface
             'defaults' => [
                 'allow_origin' => [
                     'https://superdesk-stage.cloud.funkedigital.de',
+                    'https://superdesk-wr-superdesk-stage.cloud.funkedigital.de'
                 ],
             ],
         ];
