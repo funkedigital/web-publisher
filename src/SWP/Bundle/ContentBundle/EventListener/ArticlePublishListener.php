@@ -32,7 +32,7 @@ final class ArticlePublishListener
     public function publish(ArticleEvent $event): void
     {
         $article = $event->getArticle();
-        
+        $article->setPaywallSecured(true);
         if ($article->isPublished()) {
             return;
         }
