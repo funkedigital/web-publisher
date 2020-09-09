@@ -43,6 +43,7 @@ final class MigratedArticleListener
     public function publish(ArticleEvent $articleEvent): void
     {
         $article = $articleEvent->getArticle();
+        $article->setPaywallSecured(true);
         if (array_key_exists('original_article_url', $article->getExtra()) && is_string($article->getExtra()['original_article_url'])) {
             $urlParts = parse_url($article->getExtra()['original_article_url']);
             if (isset($urlParts['path'])) {
