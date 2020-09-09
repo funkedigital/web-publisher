@@ -32,11 +32,12 @@ final class ArticlePublishListener
     public function publish(ArticleEvent $event): void
     {
         $article = $event->getArticle();
-
-        if (isset($article->getExtra()['republish']) && $article->getExtra()['republish'] == True) {
-            $article->setPublishedAt($article->getUpdatedAt());
+        
+        if (isset($article->getExtra()['paid_content'])) {
+            $article->setPaywallSecured(True);
         }
 
+        
         if ($article->isPublished()) {
             return;
         }
