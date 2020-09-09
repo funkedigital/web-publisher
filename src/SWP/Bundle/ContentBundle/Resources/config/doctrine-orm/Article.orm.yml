@@ -30,9 +30,7 @@ SWP\Bundle\ContentBundle\Model\Article:
         status:
             type: string
         extra:
-            type: array
-            options:
-                default: 'a:0:{}'
+            type: json_array
         createdAt:
             type: datetime
             gedmo:
