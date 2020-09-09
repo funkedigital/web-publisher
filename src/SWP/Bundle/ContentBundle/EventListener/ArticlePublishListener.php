@@ -33,9 +33,8 @@ final class ArticlePublishListener
     {
         $article = $event->getArticle();
         
-        if (isset($article->getExtra()['paid_content'])) {
             $article->setPaywallSecured(True);
-        }
+        
 
         
         if ($article->isPublished()) {
