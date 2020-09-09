@@ -44,6 +44,9 @@ properties:
     authors:
         description: "An array of article authors"
         type: array
+    secured:
+        description: "Escenic Paywall secured"
+        type: bool
     articleStatistics:
         description: "Article analytics data"
         type: meta

@@ -29,6 +29,8 @@ SWP\Bundle\ContentBundle\Model\Article:
             type: string
         status:
             type: string
+        secured:
+            type: boolean
         extra:
             type: array
             options:

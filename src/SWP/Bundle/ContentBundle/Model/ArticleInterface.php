@@ -89,6 +89,18 @@ interface ArticleInterface extends TimestampableInterface, TimestampableCancelIn
     public function isPublished();
 
     /**
+     * @param bool $boolean
+     *
+     * @return bool
+     */
+    public function setSecured($boolean);
+
+    /**
+     * @return bool
+     */
+    public function getSecured();
+
+    /**
      * @param string $status
      *
      * @return string

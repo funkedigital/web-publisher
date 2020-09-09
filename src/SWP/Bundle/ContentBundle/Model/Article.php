@@ -94,6 +94,11 @@ class Article implements ArticleInterface
      */
     protected $isPublishable;
 
+    /**
+     * @var bool
+     */
+    protected $secured;
+
     /** @var array */
     protected $metadata = [];
 
@@ -174,6 +179,16 @@ class Article implements ArticleInterface
     public function setIsPublishable(bool $boolean): void
     {
         $this->setPublishable($boolean);
+    }
+
+    public function getSecured()
+    {
+        return $this->secured;
+    }
+
+    public function setSecured(bool $boolean)
+    {
+        $this->secured = $boolean;
     }
 
     public function isPublished()
