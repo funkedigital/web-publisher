@@ -93,7 +93,7 @@ interface ArticleInterface extends TimestampableInterface, TimestampableCancelIn
      *
      * @return bool
      */
-    public function setSecured($boolean);
+    public function setSecured(bool $boolean);
 
     /**
      * @return bool
