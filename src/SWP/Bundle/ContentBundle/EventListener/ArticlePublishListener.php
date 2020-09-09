@@ -33,10 +33,6 @@ final class ArticlePublishListener
     {
         $article = $event->getArticle();
         
-            $article->setPaywallSecured(True);
-        
-
-        
         if ($article->isPublished()) {
             return;
         }
