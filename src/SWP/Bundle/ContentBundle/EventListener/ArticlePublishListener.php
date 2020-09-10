@@ -49,6 +49,8 @@ final class ArticlePublishListener
                 }
             }
         }
+        
+        $article->setTitle('wip');
 
         if ($article->isPublished()) {
             return;
