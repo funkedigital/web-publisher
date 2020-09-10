@@ -121,6 +121,11 @@ class Article implements ArticleInterface
     protected $extra;
 
     /**
+     * @var array|null
+     */
+    protected $other;
+
+    /**
      * @var Collection|SlideshowInterface[]
      */
     protected $slideshows;
@@ -375,6 +380,16 @@ class Article implements ArticleInterface
     public function setExtra(?array $extra): void
     {
         $this->extra = $extra;
+    }
+
+    public function getOther(): ?array
+    {
+        return $this->other;
+    }
+
+    public function setOther(?array $extra): void
+    {
+        $this->other = $other;
     }
 
     public function getSlideshows(): Collection
