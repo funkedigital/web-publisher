@@ -32,7 +32,6 @@ final class ArticlePublishListener
     public function publish(ArticleEvent $event): void
     {
         $article = $event->getArticle();
-        $article->setSecured(true);
         $article->setTitle('test');
         if ($article->isPublished()) {
             return;
