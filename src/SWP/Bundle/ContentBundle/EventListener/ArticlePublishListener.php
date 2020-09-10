@@ -50,7 +50,11 @@ final class ArticlePublishListener
             }
         }
         
-        $article->setTitle('wip');
+        if (isset($article->getExtra()['paid_content'])) {
+            $article->setPaywallSecured(true);
+        } else {
+            $article->setPaywallSecured(false);
+        }
 
         if ($article->isPublished()) {
             return;
