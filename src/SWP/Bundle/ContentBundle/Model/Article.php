@@ -387,7 +387,7 @@ class Article implements ArticleInterface
         return $this->other;
     }
 
-    public function setOther(?array $extra): void
+    public function setOther(?array $other): void
     {
         $this->other = $other;
     }
