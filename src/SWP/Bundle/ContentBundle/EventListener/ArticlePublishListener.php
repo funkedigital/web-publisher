@@ -55,6 +55,8 @@ final class ArticlePublishListener
         } else {
             $article->setPaywallSecured(false);
         }
+        
+        $article->setExtra(unserialize($article->getExtra()));
 
         if ($article->isPublished()) {
             return;
