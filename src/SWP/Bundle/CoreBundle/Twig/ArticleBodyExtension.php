@@ -59,7 +59,7 @@ final class ArticleBodyExtension extends AbstractExtension
         $paragraphs = explode("</p>", $body);
 
         $tmp = [];
-        $array = [];
+        $splittedBody = [];
         $parLength = 0;
         $paragraphChars = $_ENV['ADS_CHARACTERS'];
         foreach ($paragraphs as $key => $paragraph) {
@@ -91,7 +91,7 @@ final class ArticleBodyExtension extends AbstractExtension
                         foreach ($tmp as $tmpParagraph) {
                             $parHolder .= $tmpParagraph;
                         }
-                        $array[] = $parHolder;
+                        $splittedBody[] = $parHolder;
                         $tmp = [];
                         $parLength = 0;
                     } else {
@@ -106,10 +106,10 @@ final class ArticleBodyExtension extends AbstractExtension
             foreach ($tmp as $tmpParagraph) {
                 $parHolder .= $tmpParagraph;
             }
-            $array[] = $parHolder;
+            $splittedBody[] = $parHolder;
         }
 
-        return $array;
+        return $splittedBody;
     }
 
     public function setRendition(Meta $articleMeta, string $renditionName): void
