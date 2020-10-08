@@ -63,6 +63,7 @@ final class ArticleBodyExtension extends AbstractExtension
         $parLength = 0;
         $paragraphChars = $_ENV['ADS_CHARACTERS'];
         foreach ($paragraphs as $key => $paragraph) {
+            $paragraph .= '</p>';
             $safeToAdd = true;
 
             #check if the next element is a non empty paragraph
