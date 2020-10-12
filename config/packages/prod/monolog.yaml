@@ -22,8 +22,10 @@ monolog:
         - swp_rule
         - swp_validators
     handlers:
-        file_log:
+        nested:
+            type:  stream
             path:  "php://stdout"
+            level: debug
         console:
             type:  console
         custom_channels:
