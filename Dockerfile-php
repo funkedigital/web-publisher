@@ -47,8 +47,13 @@ RUN set -ex \
 
 RUN curl --insecure https://getcomposer.org/composer.phar -o /usr/bin/composer && chmod +x /usr/bin/composer
 
-# customize php-fpm-pool-settings
-COPY ./php-fpm.conf /usr/local/etc/php-fpm.d/publisher.conf
+# customize php-fpm-pool-settings (zz-prefix to load it after standard www.conf)
+COPY ./php-fpm.conf /usr/local/etc/php-fpm.d/zz-publisher.conf
+
+# create writeable cache folder
+RUN mkdir /var/www/publisher/var/cache/prod
+RUN chown www-data. /var/www/publisher/var/cache/prod
+
 COPY php.ini /etc/php7/conf.d/php.ini
 # Set timezone
 RUN apk add --no-cache tzdata
@@ -64,9 +69,9 @@ RUN mkdir -p /var/www/.composer && chown -R www-data /var/www/.composer
 
 COPY . /var/www/publisher
 
-WORKDIR /var/www/publisher/	
-RUN php /usr/bin/composer install \	
- && php /usr/bin/composer dump-autoload \	
+WORKDIR /var/www/publisher/
+RUN php /usr/bin/composer install \
+ && php /usr/bin/composer dump-autoload \
  && php /usr/bin/composer dump-env prod
- 
+
 WORKDIR /var/www/publisher
