@@ -52,4 +52,4 @@ cp -R fdl-magazine/ src/SWP/Bundle/FixturesBundle/Resources/themes/fdl-magazine
 
 printf "Installing and activating new build theme for tenant %s\n\n\nPLEASE BE PATIENT, IT TAKES A WHILE!\nStarted at %s" "$TENANT" "$(date)"
 cd /var/www/publisher && php bin/console swp:theme:install "$TENANT" src/SWP/Bundle/FixturesBundle/Resources/themes/fdl-magazine/ -f --activate
-printf "Finished at %s" "$(date)"
+printf "Finished at %s\n\n" "$(date)"

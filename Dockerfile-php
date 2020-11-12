@@ -46,6 +46,7 @@ RUN set -ex \
 RUN curl --insecure https://getcomposer.org/composer.phar -o /usr/bin/composer && chmod +x /usr/bin/composer
 
 # customize php-fpm-pool-settings
+# FIXME publisher.conf values gets overwritten by default www.conf in php-fpm config!
 COPY ./php-fpm.conf /usr/local/etc/php-fpm.d/publisher.conf
 #COPY php.ini /usr/local/etc/php/php.ini-production
 COPY php.ini /usr/local/etc/php/conf.d/memory-limit-php.ini
@@ -64,10 +65,10 @@ RUN mkdir -p /var/www/.composer && chown -R www-data /var/www/.composer
 
 COPY . /var/www/publisher
 
-WORKDIR /var/www/publisher/	
-RUN php /usr/bin/composer install \	
- && php /usr/bin/composer dump-autoload \	
- && php /usr/bin/composer dump-env prod 
+WORKDIR /var/www/publisher/
+RUN php /usr/bin/composer install \
+ && php /usr/bin/composer dump-autoload \
+ && php /usr/bin/composer dump-env prod
 
 # change owner, so php can write its files
 WORKDIR /var/www/publisher/
