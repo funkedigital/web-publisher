@@ -49,7 +49,15 @@ final class ArticlePublishListener
                 }
             }
         }
+        
+        if (isset($article->getExtra()['paid_content'])) {
+            $article->setPaywallSecured(true);
+        } else {
+            $article->setPaywallSecured(false);
+        }
 
+        $article->setOther($article->getExtra());
+        
         if ($article->isPublished()) {
             return;
         }
