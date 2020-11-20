@@ -46,8 +46,6 @@ class SWPCoreExtension extends Extension implements PrependExtensionInterface
         $loader->load('controllers.yaml');
         $loader->load('subscribers.yaml');
         $loader->load('message_handlers.yaml');
-        $loader->load('apple_news.yaml');
-        $loader->load('routers.yaml');
 
         $this->loadDeviceListener($config, $loader);
 
@@ -88,9 +86,11 @@ class SWPCoreExtension extends Extension implements PrependExtensionInterface
 
         $container->prependExtensionConfig('fos_http_cache', $fosHttpCacheConfig);
 
+        # FIXME Hardcoded addresses?! Use config!
         $nelmioCorsConfig = [
             'defaults' => [
                 'allow_origin' => [
+                    'https://superdesk.cloud.funkedigital.de',
                     'https://superdesk-stage.cloud.funkedigital.de',
                     'https://superdesk-wr-superdesk-stage.cloud.funkedigital.de'
                 ],

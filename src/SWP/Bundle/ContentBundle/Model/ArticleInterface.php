@@ -161,6 +161,16 @@ interface ArticleInterface extends TimestampableInterface, TimestampableCancelIn
 
     public function setExtra(?array $extra): void;
 
+    /**
+     * @return array|null
+     */
+    public function getOther(): ?array;
+
+    /**
+     * @param array|null $other
+     */
+    public function setOther(?array $other): void;
+
     public function getSlideshows(): Collection;
 
     public function hasSlideshow(SlideshowInterface $slideshow): bool;

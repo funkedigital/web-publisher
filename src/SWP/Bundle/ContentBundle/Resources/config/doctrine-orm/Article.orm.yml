@@ -66,6 +66,9 @@ SWP\Bundle\ContentBundle\Model\Article:
         metadata:
             type: json_array
             nullable: true
+        other:
+            type: json_array
+            nullable: true
         code:
             type: string
     manyToOne:

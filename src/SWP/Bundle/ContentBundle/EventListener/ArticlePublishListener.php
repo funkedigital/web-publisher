@@ -32,6 +32,32 @@ final class ArticlePublishListener
     public function publish(ArticleEvent $event): void
     {
         $article = $event->getArticle();
+
+        if (isset($article->getExtra()['republish']) && $article->getExtra()['republish'] == True) {
+            $article->setPublishedAt($article->getUpdatedAt());
+        }
+
+        // assign a id at the end of the url
+        if (isset($article->getExtra()['uniqueName'])) {
+            $uniqueId = $article->getExtra()['uniqueName'];
+            if ($uniqueId != '') {
+                $uniqueId = '-id' . $uniqueId;
+                $articleSlug = $article->getSlug();
+                //if there is no id, insert it
+                if (!preg_match('/(-id)[0-9]+$/', $articleSlug)) {
+                    $article->setSlug($articleSlug . $uniqueId);
+                }
+            }
+        }
+
+        if (isset($article->getExtra()['paid_content'])) {
+            $article->setPaywallSecured(true);
+        } else {
+            $article->setPaywallSecured(false);
+        }
+
+        $article->setOther($article->getExtra());
+
         if ($article->isPublished()) {
             return;
         }

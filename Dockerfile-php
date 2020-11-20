@@ -25,7 +25,6 @@ RUN set -ex \
         rabbitmq-c-dev \
         libzip-dev \
         zip \
-        curl-dev \
     && docker-php-ext-configure intl \
     && docker-php-ext-install intl \
     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
@@ -68,9 +67,8 @@ COPY . /var/www/publisher
 WORKDIR /var/www/publisher/
 RUN php /usr/bin/composer install \
  && php /usr/bin/composer dump-autoload \
- && php /usr/bin/composer dump-env dev
+ && php /usr/bin/composer dump-env prod
 
-# change owner, so php can write its files
 WORKDIR /var/www/publisher/
 RUN chown -R www-data. var/
 
