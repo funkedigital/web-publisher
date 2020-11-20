@@ -22,3 +22,4 @@ framework:
     trusted_hosts:   ~
     fragments: { path: /_fragment }
     http_method_override: true
+    disallow_search_engine_index: false
