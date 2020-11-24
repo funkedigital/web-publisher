@@ -21,6 +21,7 @@ monolog:
         - swp_image_conversion
         - swp_rule
         - swp_validators
+        - swp_api_auth_superdesk
     handlers:
         main:
             type:         fingers_crossed
@@ -42,6 +43,7 @@ monolog:
                 - swp_asset_download
                 - swp_rule
                 - swp_validators
+                - swp_api_auth_superdesk
         app:
             type: fingers_crossed
             action_level: error
