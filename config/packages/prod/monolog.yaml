@@ -51,3 +51,7 @@ monolog:
             type: service
             id: monolog.gelf_handler
             include_stacktraces: true
+        file_log:         
+            type: stream            
+            path: "php://stderr" 
+            level: debug 
