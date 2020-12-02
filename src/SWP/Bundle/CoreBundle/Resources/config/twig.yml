@@ -65,5 +65,6 @@ services:
         arguments:
             - '@swp_content_bundle.manager.media'
             - '@SWP\Bundle\ContentBundle\File\FileExtensionChecker'
+            - '%env(int:ADS_CHARACTERS)%'
         tags:
             - { name: twig.extension }
