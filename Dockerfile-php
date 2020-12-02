@@ -70,4 +70,4 @@ RUN php /usr/bin/composer install \
  && php /usr/bin/composer dump-env prod
 
 WORKDIR /var/www/publisher
-RUN chown -R www-data. var/
+RUN chown www-data. -R /var/www/publisher
