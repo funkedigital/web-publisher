@@ -51,3 +51,8 @@ monolog:
             type: service
             id: monolog.gelf_handler
             include_stacktraces: true
+        # enable php logging in rancher log viewer
+        file_log:
+            type: stream
+            path: "php://stderr"
+            level: debug
